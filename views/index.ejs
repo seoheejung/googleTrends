@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Daily Search Trends</title>
+        <link rel="stylesheet" href="/public/main.css" >
+    </head>
+    <body>
+        <div class="header-container">
+            <div >
+                <p><%=resultData.date%></p>
+            </div>
+            <div class="rss-container">
+                <div class="container">
+                    <h1>일별 인기 급상승 검색어</h1>
+                    <% resultData.items.forEach(function(item){ %>
+                        <div class="card">
+                            <h2><%= item.title %></h2>
+                            <p><%= item.content %></p>
+                            <p>Published Date: <%= item.pubDate %></p>
+                        </div>
+                    <% }); %>
+                </div>
+                <div class="share-container">
+                    <script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/3523_RC02/embed_loader.js"></script> 
+                    <script type="text/javascript"> trends.embed.renderWidget("dailytrends", "", {"geo":"KR","guestPath":"https://trends.google.co.kr:443/trends/embed/"}); </script>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
